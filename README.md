@@ -10,3 +10,6 @@ Assumptions:
   * The remote user has write access to the remote directory containing the repos.
 
 I use this script push repos to a server to allow sharing them between various machines on my LAN.
+
+## git-list_remotes.sh
+A tool to list the remote repos on the server and indicate how much disk space they are consuming, individually and as a whole.
