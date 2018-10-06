@@ -24,20 +24,20 @@ if [ "$1" != "remote" ] ; then
       if [ $? -eq 0 ] ; then
          git push --set-upstream origin master
       fi
-      exit $?
    fi
+   exit $?
 
 # ---------------------------------------------------------------------------
 else
    # On the git server we create the bare repo if it doesn't already exist
    REPO=$2
-   if [ -e /git/$REPO.git ] ; then
-      echo "ERROR: can't add remote repo '$REPO' - already exists?"
+   if [ -e $REMOTE_PATH/$REPO.git ] ; then
+      echo "ERROR: can't add remote repo '$REPO' - already exists"
       exit 1
    fi
 
-   mkdir /git/$REPO.git
-   cd /git/$REPO.git
+   mkdir $REMOTE_PATH/$REPO.git
+   cd $REMOTE_PATH/$REPO.git
    git init --bare --shared
    exit $?
 fi
